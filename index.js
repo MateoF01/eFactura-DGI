@@ -3,6 +3,7 @@ import { readFileSync } from 'fs'
 import { Client, createClient, WSSecurityCert } from 'soap'
 import { parseString } from 'xml2js';
 import dotenv from 'dotenv';
+import {construirXML} from './tools.js'
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ const crearCliente = async (url, options) => {
 
   const setClientSecurity = (cliente, certPath, password) => {
     const { privateKey, certificate } = retornaCertificado(certPath, password)
+    console.log(certificate)
     cliente.setSecurity(new WSSecurityCert(privateKey, certificate, password))
   }
 
@@ -51,17 +53,32 @@ const crearCliente = async (url, options) => {
 };
 
 const url = 'https://efactura.dgi.gub.uy:6443/ePrueba/ws_eprueba?wsdl' //testing
+//const url2 = 'https://servicios.dgi.gub.uy/serviciosenlinea/envio-cfe' esta me la paso ernesto pero no se de donde la sacó
 
 const cliente = await crearCliente(url, {})
 
+console.log(cliente)
+
 setClientSecurity(cliente, './La_Riviera.pfx', process.env.PASSWORD)
+
+const now = new Date();
+const offset = -3 * 60; 
+const offsetDate = new Date(now.getTime() + offset * 60000); 
+const formattedDate = offsetDate.toISOString().slice(0, 19) + "-03:00";
+
+const RutReceptor = 219999830019;
+const RUCEmisor = 219999820013;
+const Idemisor = 3009;
+const CantCFE = 1;
+
+const xmlData = construirXML(RutReceptor, RUCEmisor, Idemisor, CantCFE, formattedDate)
 
 const args = {
     Datain: {
-        xmlData: ""
+        xmlData: xmlData
     } 
+};
 
-}
 
 const resultado = await ejecutarSolicitudSoap(cliente, "EFACRECEPCIONSOBREAsync", args)
 

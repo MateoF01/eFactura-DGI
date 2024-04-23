@@ -4,6 +4,7 @@ import { Client, createClient, WSSecurityCert } from 'soap'
 import { parseString } from 'xml2js';
 import dotenv from 'dotenv';
 import {construirXML} from './tools.js'
+import fs from 'fs'
 
 dotenv.config();
 
@@ -39,7 +40,8 @@ const crearCliente = async (url, options) => {
 
   const setClientSecurity = (cliente, certPath, password) => {
     const { privateKey, certificate } = retornaCertificado(certPath, password)
-    console.log(certificate)
+    //console.log(privateKey)
+    //console.log(certificate)
     cliente.setSecurity(new WSSecurityCert(privateKey, certificate, password))
   }
 
@@ -57,8 +59,6 @@ const url = 'https://efactura.dgi.gub.uy:6443/ePrueba/ws_eprueba?wsdl' //testing
 
 const cliente = await crearCliente(url, {})
 
-console.log(cliente)
-
 setClientSecurity(cliente, './La_Riviera.pfx', process.env.PASSWORD)
 
 const now = new Date();
@@ -71,7 +71,9 @@ const RUCEmisor = 219999820013;
 const Idemisor = 3009;
 const CantCFE = 1;
 
-const xmlData = construirXML(RutReceptor, RUCEmisor, Idemisor, CantCFE, formattedDate)
+//const xmlData = construirXML(RutReceptor, RUCEmisor, Idemisor, CantCFE, formattedDate)
+
+const xmlData = fs.readFileSync('ejemplo-sobre.xml', 'utf8');
 
 const args = {
     Datain: {
@@ -82,13 +84,16 @@ const args = {
 
 const resultado = await ejecutarSolicitudSoap(cliente, "EFACRECEPCIONSOBREAsync", args)
 
+
+
 parseString(resultado[0].Dataout.xmlData, (err, result) => {
     if (err) {
         console.error('Error al parsear el XML:', err);
     } else {
-        console.log("Caratula: ", JSON.stringify(result.ACKSobre.Caratula))        
-        console.log("Detalle: ", JSON.stringify(result.ACKSobre.Detalle))        
+        console.log("Caratula SOBRE: ", JSON.stringify(result.ACKSobre.Caratula))        
+        console.log("Detalle SOBRE: ", JSON.stringify(result.ACKSobre.Detalle))        
     }
-    });
+  });
 
+  const xmlCFE = resultado[1] // ver como parsear
 

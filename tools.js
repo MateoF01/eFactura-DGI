@@ -4,7 +4,7 @@ function construirXML(RutReceptor, RUCEmisor, Idemisor, CantCFE, Fecha, TmstFirm
     <DGICFE:Caratula version="1.0">
         <DGICFE:RutReceptor>${RutReceptor}</DGICFE:RutReceptor>
         <DGICFE:RUCEmisor>${RUCEmisor}</DGICFE:RUCEmisor>
-        <DGICFE:Idemisor>${Idemisor}</DGICFE:Idemisor>
+        <DGICFE:Idemisor>${Idemisor}</DGICFE:Idemisor> 
         <DGICFE:CantCFE>${CantCFE}</DGICFE:CantCFE>
         <DGICFE:Fecha>${Fecha}</DGICFE:Fecha>
         <DGICFE:X509Certificate>${certificado}</DGICFE:X509Certificate>

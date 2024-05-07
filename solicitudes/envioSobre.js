@@ -16,9 +16,9 @@ setClientSecurity(cliente, certificado, process.env.PASSWORD)
 await incrementarIdEmisor(sobre_prueba)
 //firmarXml (sobre_prueba)
 
-const xmlData = fs.readFileSync(signed, 'utf8');
+const xmlData = fs.readFileSync(sobre_prueba, 'utf8');
 
-//el problema que veo es que calculo que se me firma la solicitud pero necesito que se firme el xmlData
+//el problema que veo es que calculo que se me firma la solicitud pero necesito que se firme el xmlData o algo asi
 
 const args = {
     Datain: {

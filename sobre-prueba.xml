@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DGICFE:EnvioCFE version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_v1.11.xsd" xmlns:DGICFE="http://cfe.dgi.gub.uy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DGICFE:Caratula version="1.0">
+    <DGICFE:RutReceptor>219999830019</DGICFE:RutReceptor>
+    <DGICFE:RUCEmisor>219470980013</DGICFE:RUCEmisor>
+    <DGICFE:Idemisor>3034</DGICFE:Idemisor>
+    <DGICFE:CantCFE>1</DGICFE:CantCFE>
+    <DGICFE:Fecha>2024-04-23T13:10:00-03:00</DGICFE:Fecha>
+    <DGICFE:X509Certificate>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</DGICFE:X509Certificate>
+  </DGICFE:Caratula>
+  <ns0:CFE version="1.0" xmlns:ns0="http://cfe.dgi.gub.uy">
+    <ns0:eFact>
+      <ns0:TmstFirma>2024-04-24T12:54:55-03:00</ns0:TmstFirma>
+      <ns0:Encabezado>
+        <ns0:IdDoc>
+          <ns0:TipoCFE>111</ns0:TipoCFE>
+          <ns0:Serie>A</ns0:Serie>
+          <ns0:Nro>1</ns0:Nro>
+          <ns0:FchEmis>2024-04-25</ns0:FchEmis>
+          <ns0:FmaPago>1</ns0:FmaPago>
+        </ns0:IdDoc>
+        <ns0:Emisor>
+          <ns0:RUCEmisor>219470980013</ns0:RUCEmisor>
+          <ns0:RznSoc>DGI-PRUEBA SERVICIOS WEB</ns0:RznSoc>
+          <ns0:CdgDGISucur>1</ns0:CdgDGISucur>
+          <ns0:DomFiscal>FERNANDEZ CRESPO AVDA. DANIEL 1534</ns0:DomFiscal>
+          <ns0:Ciudad>MONTEVIDEO</ns0:Ciudad>
+          <ns0:Departamento>MONTEVIDEO</ns0:Departamento>
+        </ns0:Emisor>
+        <ns0:Totales>
+          <ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+          <ns0:MntTotal>5280</ns0:MntTotal>
+          <ns0:CantLinDet>3</ns0:CantLinDet>
+          <ns0:MntPagar>5280</ns0:MntPagar>
+        </ns0:Totales>
+      </ns0:Encabezado>
+      <ns0:Detalle>
+        <ns0:Item>
+          <ns0:NroLinDet>1</ns0:NroLinDet>
+          <ns0:IndFact>3</ns0:IndFact>
+          <ns0:NomItem>aaa</ns0:NomItem>
+          <ns0:Cantidad>20</ns0:Cantidad>
+          <ns0:UniMed>KG</ns0:UniMed>
+          <ns0:PrecioUnitario>230</ns0:PrecioUnitario>
+          <ns0:MontoItem>4600</ns0:MontoItem>
+        </ns0:Item>
+        <ns0:Item>
+          <ns0:NroLinDet>2</ns0:NroLinDet>
+          <ns0:IndFact>3</ns0:IndFact>
+          <ns0:NomItem>bbb</ns0:NomItem>
+          <ns0:Cantidad>15</ns0:Cantidad>
+          <ns0:UniMed>Un</ns0:UniMed>
+          <ns0:PrecioUnitario>12</ns0:PrecioUnitario>
+          <ns0:MontoItem>180</ns0:MontoItem>
+        </ns0:Item>
+        <ns0:Item>
+          <ns0:NroLinDet>3</ns0:NroLinDet>
+          <ns0:IndFact>1</ns0:IndFact>
+          <ns0:NomItem>ccc</ns0:NomItem>
+          <ns0:Cantidad>20</ns0:Cantidad>
+          <ns0:UniMed>Un</ns0:UniMed>
+          <ns0:PrecioUnitario>25</ns0:PrecioUnitario>
+          <ns0:MontoItem>500</ns0:MontoItem>
+        </ns0:Item>
+      </ns0:Detalle>
+      <ns0:CAEData>
+        <ns0:CAE_ID>90240894778</ns0:CAE_ID>
+        <ns0:DNro>1</ns0:DNro>
+        <ns0:HNro>100</ns0:HNro>
+        <ns0:FecVenc>2026-04-24</ns0:FecVenc>
+      </ns0:CAEData>
+    </ns0:eFact>
+  </ns0:CFE>
+</DGICFE:EnvioCFE>

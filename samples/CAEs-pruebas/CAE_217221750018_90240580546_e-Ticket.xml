@@ -5,7 +5,7 @@
 <ns0:TmstFrma>2024-03-12T14:21:16-03:00</ns0:TmstFrma><!--eTck. TmstFirma -->
 <ns0:DA>
   <ns0:RucE>217221750018</ns0:RucE>
-  <ns0:TCFE>101</ns0:TCFE>
+  <ns0:TCFE>101</ns0:TCFE> <!-- TIPO DE CFE (101 -> eticket, 111->efactura)-->
   <ns0:Serie>A</ns0:Serie>
   <ns0:DNro>101</ns0:DNro> <!--CAEData. DNro -->
   <ns0:HNro>200</ns0:HNro> <!--CAEData. HNro -->

@@ -5,8 +5,7 @@
             "name": "Debug Envio Sobre",
             "request": "launch",
             "program": "${workspaceFolder}/solicitudes/envioSobre.js",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}/solicitudes"
         }
     ]
 }
- 

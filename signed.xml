@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DGICFE:EnvioCFE version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_v1.11.xsd" xmlns:DGICFE="http://cfe.dgi.gub.uy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<DGICFE:EnvioCFE version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_v1.11.xsd"
+  xmlns:DGICFE="http://cfe.dgi.gub.uy"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <DGICFE:Caratula version="1.0">
     <DGICFE:RutReceptor>219999830019</DGICFE:RutReceptor>
     <DGICFE:RUCEmisor>219470980013</DGICFE:RUCEmisor>
@@ -8,7 +10,8 @@
     <DGICFE:Fecha>2024-04-23T13:10:00-03:00</DGICFE:Fecha>
     <DGICFE:X509Certificate>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</DGICFE:X509Certificate>
   </DGICFE:Caratula>
-  <ns0:CFE version="1.0" xmlns:ns0="http://cfe.dgi.gub.uy">
+  <ns0:CFE version="1.0"
+    xmlns:ns0="http://cfe.dgi.gub.uy">
     <ns0:eFact>
       <ns0:TmstFirma>2024-04-24T12:54:55-03:00</ns0:TmstFirma>
       <ns0:Encabezado>
@@ -70,27 +73,27 @@
         <ns0:FecVenc>2026-04-24</ns0:FecVenc>
       </ns0:CAEData>
     </ns0:eFact>
-  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-	<SignedInfo>
-		<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
-		<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-		<Reference URI="#_0">
-			<Transforms>
-				<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-			</Transforms>
-			<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
-			<DigestValue>s73RsOOd7aOktxvpkwJ1jwTa2+o=</DigestValue>
-		</Reference>
-	</SignedInfo>
-	<SignatureValue>d8psY2kDt9//PsGa3De1jYhqw6QGBIj/HMZvciTASSCPW0hc2quSW9mC04baHDY9GUNFr4rL4UCJWFQHjaRj4EgMTU8wKIIvM3fWifFmh/93sv8da4jG2+F4MKB5uJJIr79iT6k3ckNy5cYK9o+4fpi+ntF8qqphKHck3VsZpgzCb5QqIAwP4URKMUMhaxovyERcTf1xW3EiyTuWsA+WXyEPZn9DC1Uy6wxUhPxH30qtOZ418VTmKJUdT60Otzm5o3MU/thpVkZCHyDsKpAmyzFUxMhV70JNzN3uo+2sb/8/BLx5O21AmSRai7k9Y19IpA0tq0tmsA3Cmr4FvAkssw==</SignatureValue>
-	<KeyInfo>
-		<X509Data>
-        <X509IssuerSerial>
-        <X509IssuerName>C=UY, L=Montevideo, O=Abitab S.A., OU=ID digital, CN=Abitab</X509IssuerName>
-        <X509SerialNumber>2578719505097374183701576581857722791419818573086</X509SerialNumber>
-      </X509IssuerSerial>
-		</X509Data>
-	</KeyInfo>
-</Signature>
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+        <Reference URI="#_0">
+          <Transforms>
+            <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          </Transforms>
+          <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+          <DigestValue>s73RsOOd7aOktxvpkwJ1jwTa2+o=</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>d8psY2kDt9//PsGa3De1jYhqw6QGBIj/HMZvciTASSCPW0hc2quSW9mC04baHDY9GUNFr4rL4UCJWFQHjaRj4EgMTU8wKIIvM3fWifFmh/93sv8da4jG2+F4MKB5uJJIr79iT6k3ckNy5cYK9o+4fpi+ntF8qqphKHck3VsZpgzCb5QqIAwP4URKMUMhaxovyERcTf1xW3EiyTuWsA+WXyEPZn9DC1Uy6wxUhPxH30qtOZ418VTmKJUdT60Otzm5o3MU/thpVkZCHyDsKpAmyzFUxMhV70JNzN3uo+2sb/8/BLx5O21AmSRai7k9Y19IpA0tq0tmsA3Cmr4FvAkssw==</SignatureValue>
+      <KeyInfo>
+        <X509Data>
+          <X509IssuerSerial>
+            <X509IssuerName>C=UY, L=Montevideo, O=Abitab S.A., OU=ID digital, CN=Abitab</X509IssuerName>
+            <X509SerialNumber>2578719505097374183701576581857722791419818573086</X509SerialNumber>
+          </X509IssuerSerial>
+        </X509Data>
+      </KeyInfo>
+    </Signature>
   </ns0:CFE>
 </DGICFE:EnvioCFE>

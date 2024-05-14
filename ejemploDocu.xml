@@ -45,7 +45,7 @@
           <ns0:Cantidad>20</ns0:Cantidad>
           <ns0:UniMed>KG</ns0:UniMed>
           <ns0:PrecioUnitario>230</ns0:PrecioUnitario>
-          <ns0:MontoItem>4600</ ns0:MontoItem>
+          <ns0:MontoItem>4600</ns0:MontoItem>
         </ns0:Item>
         <ns0:Item>
           <ns0:NroLinDet>2</ns0:NroLinDet>

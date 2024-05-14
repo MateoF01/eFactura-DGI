@@ -2,7 +2,7 @@ import 'dotenv/config'
 
 import fs, { writeFileSync } from 'fs'
 import { parseString } from 'xml2js'
-import { incrementarIdEmisor } from '../lib/tools.js'
+import { incrementarIdEmisor, actualizarToken } from '../lib/tools.js'
 import { crearCliente, firmarXml, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
 
 const sobre_prueba = '../sobre-prueba.xml'
@@ -31,8 +31,21 @@ parseString(resultado[0].Dataout.xmlData, (err, result) => {
   if (err) {
     console.error('Error al parsear el XML:', err)
   } else {
-    console.log('Caratula SOBRE: ', JSON.stringify(result.ACKSobre.Caratula))
+
+    const caratula = result.ACKSobre.Caratula
+    const detalle = result.ACKSobre.Detalle
+
+    console.log('Caratula SOBRE: ', JSON.stringify(caratula))
     console.log('\n')
-    console.log('Detalle SOBRE: ', JSON.stringify(result.ACKSobre.Detalle))
+    console.log('Detalle SOBRE: ', JSON.stringify(detalle))
+    console.log('\n')
+
+    const token = detalle[0]["ParamConsulta"][0]["Token"][0]
+    const idreceptor = caratula[0]["IDReceptor"][0]
+  
+    if (token != undefined){
+      actualizarToken(token, idreceptor)
+    }
   }
 })
+

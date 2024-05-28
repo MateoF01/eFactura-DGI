@@ -48,4 +48,3 @@ parseString(resultado[0].Dataout.xmlData, (err, result) => {
     }
   }
 })
-

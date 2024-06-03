@@ -7,29 +7,41 @@ import { crearCliente, firmarXml, setClientSecurity, ejecutarSolicitudSoap } fro
 import { DOMParser, XMLSerializer } from 'xmldom'
 import { select } from 'xpath'
 
+import {CFEFactory} from '../XmlBuilder/CFEFactory.js'
+import { Sobre } from '../XmlBuilder/Sobre/Sobre.js'
 
 
-const CFE_prueba = '../CFE-prueba.xml'
-const sobre_prueba = '../sobre-base.xml'
 const certificado = '../certificados/La_Riviera.pfx'
+const jsonSobre = '../samples/jsons/sobre-base.json'
+const jsonEFact = '../samples/jsons/cfe-eFact.json'
 
 // Seteo cliente
 const url = 'https://efactura.dgi.gub.uy:6443/ePrueba/ws_eprueba?wsdl' //testing
 const cliente = await crearCliente(url, {})
 setClientSecurity(cliente, certificado, process.env.PASSWORD)
 
-// Firmo CFE
-const xmlData = fs.readFileSync(CFE_prueba, 'utf8')
-const CFE_firmado = firmarXml(xmlData, certificado, process.env.PASSWORD)
+// Creo el sobre
 
-writeFileSync('../CFE-firmado.xml', CFE_firmado, 'utf8')
+//await incrementarIdEmisor(sobre_prueba)
+const args_sobre = JSON.parse(fs.readFileSync(jsonSobre, 'utf8'))
+
+const sobreBuilder = new Sobre();
+let sobreXml = sobreBuilder.buildXml(args_sobre)
+
+
+// Construyo y Firmo CFE
+
+const argsCFE = JSON.parse(fs.readFileSync(jsonEFact, 'utf8'))
+
+const factory = new CFEFactory();
+const builder = await factory.createBuilder('eFact'); // yo le paso a la fabrica el cfe que quiero (será un for de cfes)
+
+const xmlCFE = builder.buildXml(argsCFE);
+const CFE_firmado = firmarXml(xmlCFE, certificado, process.env.PASSWORD)
 
 // Inserto CFE en sobre
 
-await incrementarIdEmisor(sobre_prueba)
-
-const sobre = fs.readFileSync(sobre_prueba, 'utf8');
-const baseDoc = new DOMParser().parseFromString(sobre, 'text/xml');
+const baseDoc = new DOMParser().parseFromString(sobreXml, 'text/xml');
 
 const fragmentDoc = new DOMParser().parseFromString(CFE_firmado, 'text/xml');
 

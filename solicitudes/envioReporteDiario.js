@@ -49,9 +49,9 @@ fs.writeFileSync('../samples/sobre-final.xml', sobreXml);
 
 // Envio a la DGI
 
-const resultado = await ejecutarSolicitudSoap(cliente, 'EFACRECEPCIONSOBREAsync', { Datain: { xmlData: sobreXml} })
+const resultado = await ejecutarSolicitudSoap(cliente, 'EFACRECEPCIONREPORTEAsync', { Datain: { xmlData: sobreXml} })
 
-console.log('----------SOBRE-----------\n')
+console.log('----------REPORTE-----------\n')
 
 parseString(resultado[0].Dataout.xmlData, (err, result) => {
   if (err) {

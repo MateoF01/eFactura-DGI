@@ -1,0 +1,36 @@
+{
+    "TipoComp": "101",
+    "RsmnData": {
+        "Montos": [
+            {
+                "Fecha": "2024-06-11",
+                "CodSuc": "1",
+                "TotMntNoGrv": 420,
+                "TotMntExpyAsim": 0,
+                "TotMntImpPerc": 0,
+                "TotMntIVAenSusp": 0,
+                "TotMntIVATasaMin": 584450.91,
+                "TotMntIVATasaBas": 166393.44,
+                "TotMntIVAOtra": 0,
+                "MntIVATasaMin": 58445.09,
+                "MntIVATasaBas": 36606.56,
+                "MntIVAOtra": 0,
+                "IVATasaMin": 10,
+                "IVATasaBas": 22,
+                "TotMntTotal": 846316,
+                "TotMntRetenido": 0
+            }
+        ],
+        "CantDocsUtil": 4,
+        "CantDocsMay_topeUI": 4,
+        "CantDocsAnulados": 0,
+        "CantDocsEmi": 4,
+        "RngDocsUtil": [
+            {
+                "Serie": "A",
+                "NroDesde": 1,
+                "NroHasta": 4
+            }
+        ]
+    }
+}

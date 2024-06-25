@@ -1,4 +1,10 @@
-### Anotaciones
+### Estructura JSONS a recibir
+
+```json 
+
+
+
+```
 
 
 

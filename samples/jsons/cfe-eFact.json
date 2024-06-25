@@ -2,38 +2,38 @@
     "TmstFirma": "2024-05-22T11:51:55-03:00",
     "Encabezado": {
         "IdDoc": {
-        "TipoCFE": "111",
-        "Serie": "A",
-        "Nro": "1",
-        "FchEmis": "2024-04-25",
-        "FmaPago": "1"
-        },
+            "TipoCFE": "112",
+            "Serie": "A",
+            "Nro": "1",
+            "FchEmis": "2024-04-25",
+            "FmaPago": "1"
+            },
         "Emisor": {
-        "RUCEmisor": "219470980013",
-        "RznSoc": "DGI PRUEBA SERVICIOS WEB",
-        "CdgDGISucur": "1",
-        "DomFiscal": "FERNANDEZ CRESPO AVDA. DANIEL 1534",
-        "Ciudad": "MONTEVIDEO",
-        "Departamento": "MONTEVIDEO"
+            "RUCEmisor": "219470980013",
+            "RznSoc": "DGI PRUEBA SERVICIOS WEB",
+            "CdgDGISucur": "1",
+            "DomFiscal": "FERNANDEZ CRESPO AVDA. DANIEL 1534",
+            "Ciudad": "MONTEVIDEO",
+            "Departamento": "MONTEVIDEO"
         },
         "Receptor": {
-        "TipoDocRecep": "2",
-        "CodPaisRecep": "UY",
-        "DocRecep": "214844360018",
-        "RznSocRecep": "DGI",
-        "DirRecep": "Fernandez Crespo 1534",
-        "CiudadRecep": "Montevideo"
+            "TipoDocRecep": "2",
+            "CodPaisRecep": "UY",
+            "DocRecep": "214844360018",
+            "RznSocRecep": "DGI",
+            "DirRecep": "Fernandez Crespo 1534",
+            "CiudadRecep": "Montevideo"
         },
         "Totales": {
-        "TpoMoneda": "UYU",
-        "MntNetoIVATasaBasica": "20000",
-        "IVATasaMin": "10",
-        "IVATasaBasica": "22",
-        "MntIVATasaBasica": "4400",
-        "MntTotal": "24400",
-        "CantLinDet": "3",
-        "MontoNF": "5000",
-        "MntPagar": "29400"
+            "TpoMoneda": "UYU",
+            "MntNetoIVATasaBasica": "20000",
+            "IVATasaMin": "10",
+            "IVATasaBasica": "22",
+            "MntIVATasaBasica": "4400",
+            "MntTotal": "24400",
+            "CantLinDet": "3",
+            "MontoNF": "5000",
+            "MntPagar": "29400"
         }
     },
     "Detalle": [
@@ -65,6 +65,12 @@
         "MontoItem": "5000"
         }
     ],
+    "Referencia": {
+        "NroLinRef": "1",
+        "TpoDocRef": "101", 
+        "Serie": "A",
+        "NroCFERef": "2"
+    },
     "CAEData": {
         "CAE_ID": "90240894778",
         "DNro": "1",

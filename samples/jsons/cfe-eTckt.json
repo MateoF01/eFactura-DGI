@@ -1,0 +1,85 @@
+{
+    "timestamp": "2024-06-11T15:30:00-03:00",
+    "encabezado": {
+        "idDoc": {
+            "tipoCFE": "102",
+            "serie": "A",
+            "nro": "1",
+            "fchEmis": "2024-06-11",
+            "mntBruto": "1",
+            "fmaPago": "1",
+            "fchVenc": "2024-06-20"
+        },
+        "emisor": {
+            "rucEmisor": "219470980013",
+            "rznSoc": "Nombre de la empresa emisora",
+            "cdgDGISucur": "1",
+            "domFiscal": "Dirección fiscal del emisor",
+            "ciudad": "Montevideo",
+            "departamento": "Montevideo"
+        },
+        "receptor": {
+            "tipoDocRecep": "3",
+            "codPaisRecep": "UY",
+            "docRecep": "13353214",
+            "rznSocRecep": "Juan Perez",
+            "dirRecep": "Dirección del receptor",
+            "ciudadRecep": "Montevideo",
+            "deptoRecep": "Montevideo"
+        },
+        "totales": {
+            "tpoMoneda": "UYU",
+            "mntNoGrv": "420",
+            "mntNetoIvaTasaMin": "360",
+            "mntNetoIVATasaBasica": "137704.9",
+            "ivaTasaMin": "10",
+            "ivaTasaBasica": "22",
+            "mntIVATasaMin": "36",
+            "mntIVATasaBasica": "30295.08",
+            "mntTotal": "168816",
+            "cantLinDet": "3",
+            "mntPagar": "168816"
+        }
+    },
+    "detalle": [
+        {
+            "nroLinDet": "1",
+            "indFact": "3",
+            "nomItem": "Bananas",
+            "cantidad": "40",
+            "uniMed": "kg",
+            "precioUnitario": "4200",
+            "montoItem": "168000"
+        },
+        {
+            "nroLinDet": "2",
+            "indFact": "2",
+            "nomItem": "Manzanas",
+            "cantidad": "18",
+            "uniMed": "kg",
+            "precioUnitario": "22",
+            "montoItem": "396"
+        },
+        {
+            "nroLinDet": "3",
+            "indFact": "1",
+            "nomItem": "Papas",
+            "cantidad": "12",
+            "uniMed": "kg",
+            "precioUnitario": "35",
+            "montoItem": "420"
+        }
+    ],
+    "referencia": {
+        "nroLinRef": "1",
+        "tpoDocRef": "101", 
+        "serie": "A",
+        "nroCFERef": "2"
+    },
+    "caeData": {
+        "caeId": "1234567890",
+        "dNro": "1",
+        "hNro": "100",
+        "fecVenc": "2024-06-30"
+    }
+}

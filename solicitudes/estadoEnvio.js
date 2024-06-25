@@ -1,18 +1,24 @@
 import 'dotenv/config'
 
-import fs from 'fs'
 import { parseString } from 'xml2js'
 import { crearCliente, firmarXml, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
+import { Token } from '../XmlBuilder/Token/Token.js'
+import fs from 'fs'
 
 const url = 'https://efactura.dgi.gub.uy:6443/ePrueba/ws_eprueba?wsdl' //testing
 
 const cliente = await crearCliente(url, {})
 
-setClientSecurity(cliente, '../certificados/La_Riviera.pfx', process.env.PASSWORD)
+setClientSecurity(cliente, '../samples/certificados/La_Riviera.pfx', process.env.PASSWORD)
 
-console.log('----------CFEs-----------')
 
-const xmlData = fs.readFileSync('../token.xml', 'utf8')
+//const token = "4dyL8iPQZIHix6ejRGeVQi0dRDZ0tkS7NkTuHyhJhCEIgb8qXwz9WdJxLw6jwl6KZhdCcpUyJrNBlJeJ5lLSMDJyFaUxKCLoe4P6jU5pX01COiKLKitH/tGA8Txo2w/N"
+//const idReceptor = "259721443"
+
+//const tokenBuilder = new Token();
+//const xmlData = tokenBuilder.buildXml(idReceptor, token)
+
+const xmlData = fs.readFileSync('../samples/token.xml', 'utf-8')
 
 const args = {
   Datain: {

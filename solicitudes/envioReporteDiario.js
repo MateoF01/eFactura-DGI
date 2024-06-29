@@ -3,15 +3,14 @@ import 'dotenv/config'
 import fs, { writeFileSync } from 'fs'
 import { parseString } from 'xml2js'
 import { incrementarIdEmisor, actualizarToken } from '../lib/tools.js'
-import { crearCliente, firmarXml, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
+import { crearCliente, firmarReporte, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
 
-import { CFEFactory } from '../XmlBuilder/CFEFactory.js'
-import { Sobre } from '../XmlBuilder/Sobre/Sobre.js'
+import { Factory } from '../XmlBuilder/Factory.js'
+import { Reporte } from '../XmlBuilder/Reporte/Reporte.js'
 
 const certificado = '../samples/certificados/La_Riviera.pfx'
-const jsonSobre = '../samples/jsons/sobre-base.json'
-const jsonEFact = '../samples/jsons/cfe-eFact.json'
-const jsonETckt = '../samples/jsons/cfe-eTckt.json'
+const jsonReporte = '../samples/jsons/reporte-base.json'
+const jsonRsmnTck = '../samples/jsons/rsmn-Tck.json'
 
 // Seteo cliente
 const url = 'https://efactura.dgi.gub.uy:6443/ePrueba/ws_eprueba?wsdl' //testing
@@ -20,36 +19,34 @@ setClientSecurity(cliente, certificado, process.env.PASSWORD)
 
 // Creo el sobre
 
-//await incrementarIdEmisor(sobre_prueba)
-const args_sobre = JSON.parse(fs.readFileSync(jsonSobre, 'utf8'))
+const args_reporte = JSON.parse(fs.readFileSync(jsonReporte, 'utf8'))
 
-const sobreBuilder = new Sobre();
-let sobreXml = sobreBuilder.buildXml(args_sobre)
+const reporteBuilder = new Reporte();
+let reporteXml = reporteBuilder.buildXml(args_reporte)
 
-const argsCFE = JSON.parse(fs.readFileSync(jsonEFact, 'utf8'))
-// Construyo y Firmo CFE
+const argsRSMN = JSON.parse(fs.readFileSync(jsonRsmnTck, 'utf8'))
+// Construyo RSMN y lo agrego al reporte
 for (let i = 0; i < 1; i++){
-  const factory = new CFEFactory();
-  const builder = await factory.createBuilder('eFact'); // yo le paso a la fabrica el cfe que quiero (será un for de cfes)
+  const factory = new Factory('./RSMNs');
+  const builder = await factory.createBuilder('RsmnTck'); // yo le paso a la fabrica el cfe que quiero (será un for de cfes)
   
-  const xmlCFE = builder.buildXml(argsCFE);
+  const xmlRSmn = builder.buildXml(argsRSMN);
 
-
-  const CFE_firmado = firmarXml(xmlCFE, certificado, process.env.PASSWORD)
+  // Inserto RSMN en reporte
   
-  // Inserto CFE en sobre
-  
-  sobreXml = sobreBuilder.insertarCFE(sobreXml, CFE_firmado)
+  reporteXml = reporteBuilder.insertarRSMN(reporteXml, xmlRSmn)
 
 }
 
+//FIRMO EL REPORTE
 
+const reporteFirmado = firmarReporte(reporteXml, certificado, process.env.PASSWORD)
 
-fs.writeFileSync('../samples/sobre-final.xml', sobreXml);
+fs.writeFileSync('../samples/reporte-final.xml', reporteFirmado);
 
 // Envio a la DGI
 
-const resultado = await ejecutarSolicitudSoap(cliente, 'EFACRECEPCIONREPORTEAsync', { Datain: { xmlData: sobreXml} })
+const resultado = await ejecutarSolicitudSoap(cliente, 'EFACRECEPCIONREPORTEAsync', { Datain: { xmlData: reporteFirmado} })
 
 console.log('----------REPORTE-----------\n')
 
@@ -58,19 +55,20 @@ parseString(resultado[0].Dataout.xmlData, (err, result) => {
     console.error('Error al parsear el XML:', err)
   } else {
 
-    const caratula = result.ACKSobre.Caratula
-    const detalle = result.ACKSobre.Detalle
+    //!!!!
+    //Si me dice que no existe caratula es porque estoy mandando un reporte duplicado     
+    //!!!!
+
+    //console.log(result.Respuestas.Respuesta)
+
+    const caratula = result.ACKRepDiario.Caratula
+    const detalle = result.ACKRepDiario.Detalle
 
     console.log('Caratula SOBRE: ', JSON.stringify(caratula))
     console.log('\n')
     console.log('Detalle SOBRE: ', JSON.stringify(detalle))
     console.log('\n')
-
-    const token = detalle[0]["ParamConsulta"][0]["Token"][0]
-    const idreceptor = caratula[0]["IDReceptor"][0]
-  
-    if (token != undefined){
-      actualizarToken(token, idreceptor)
+    
     }
-  }
+    
 })

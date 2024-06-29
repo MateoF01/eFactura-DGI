@@ -1,8 +1,8 @@
 import 'dotenv/config'
 
 import { parseString } from 'xml2js'
-import { crearCliente, firmarXml, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
-import { Token } from '../XmlBuilder/Token/Token.js'
+import { crearCliente, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
+//import { Token } from '../XmlBuilder/Token/Token.js'
 import fs from 'fs'
 
 const url = 'https://efactura.dgi.gub.uy:6443/ePrueba/ws_eprueba?wsdl' //testing

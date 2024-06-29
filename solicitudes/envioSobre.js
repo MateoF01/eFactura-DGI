@@ -3,9 +3,9 @@ import 'dotenv/config'
 import fs, { writeFileSync } from 'fs'
 import { parseString } from 'xml2js'
 import { incrementarIdEmisor, actualizarToken } from '../lib/tools.js'
-import { crearCliente, firmarXml, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
+import { crearCliente, firmarCFE, setClientSecurity, ejecutarSolicitudSoap } from '../lib/soap.js'
 
-import { CFEFactory } from '../XmlBuilder/CFEFactory.js'
+import { Factory } from '../XmlBuilder/Factory.js'
 import { Sobre } from '../XmlBuilder/Sobre/Sobre.js'
 
 const certificado = '../samples/certificados/La_Riviera.pfx'
@@ -29,13 +29,13 @@ let sobreXml = sobreBuilder.buildXml(args_sobre)
 const argsCFE = JSON.parse(fs.readFileSync(jsonEFact, 'utf8'))
 // Construyo y Firmo CFE
 for (let i = 0; i < 1; i++){
-  const factory = new CFEFactory();
+  const factory = new Factory('./CFEs');
   const builder = await factory.createBuilder('eFact'); // yo le paso a la fabrica el cfe que quiero (será un for de cfes)
   
   const xmlCFE = builder.buildXml(argsCFE);
 
 
-  const CFE_firmado = firmarXml(xmlCFE, certificado, process.env.PASSWORD)
+  const CFE_firmado = firmarCFE(xmlCFE, certificado, process.env.PASSWORD)
   
   // Inserto CFE en sobre
   

@@ -6,6 +6,13 @@
             "request": "launch",
             "program": "${workspaceFolder}/solicitudes/envioSobre.js",
             "cwd": "${workspaceFolder}/solicitudes"
+        },
+        {
+            "type": "node",
+            "name": "Debug Envio Reporte",
+            "request": "launch",
+            "program": "${workspaceFolder}/solicitudes/envioReporteDiario.js",
+            "cwd": "${workspaceFolder}/solicitudes"
         }
     ]
 }

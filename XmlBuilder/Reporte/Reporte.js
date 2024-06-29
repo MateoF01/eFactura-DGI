@@ -1,9 +1,9 @@
 import {XmlBuilder} from '../XmlBuilder.js'
 
-class Sobre extends XmlBuilder {
+class Reporte extends XmlBuilder {
 
     buildXml(args){
-        const sobreBase = `<ns1:Reporte xsi:schemaLocation="http://cfe.dgi.gub.uy ReporteDiarioCFE_v1.15.xsd"
+        const reporteBase = `<ns1:Reporte xsi:schemaLocation="http://cfe.dgi.gub.uy ReporteDiarioCFE_v1.15.xsd"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
             xmlns:ns1="http://cfe.dgi.gub.uy">
@@ -15,7 +15,7 @@ class Sobre extends XmlBuilder {
                 <ns1:CantComprobantes>${args.CantComprobantes}</ns1:CantComprobantes>
             </ns1:Caratula>
         </ns1:Reporte>`
-          return sobreBase
+          return reporteBase
         }
 
     insertarRSMN(reporteXml, rsmn){
@@ -33,6 +33,6 @@ class Sobre extends XmlBuilder {
 
 }
 
-export { Sobre }
+export { Reporte }
 
 
